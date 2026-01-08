@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIVINIA by Vidhi Mehra - Monthly Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
+            color: #2C2C2C;
+            padding: 40px 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FAF9F6 0%, #F5F3EE 100%);
+            color: #2C2C2C;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 4px solid #C9A961;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #2C2C2C;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666666;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        h2 {
+            font-size: 1.9em;
+            margin: 50px 0 30px 0;
+            color: #2C2C2C;
+            border-left: 5px solid #C9A961;
+            padding-left: 20px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .section-subtitle {
+            color: #666666;
+            font-size: 0.95em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .metric-card {
+            background: #FFFFFF;
+            border: 2px solid #E8E8E8;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A961, #D4AF37);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.2);
+            border-color: #C9A961;
+        }
+
+        .metric-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 15px 0;
+            color: #C9A961;
+        }
+
+        .metric-label {
+            font-size: 0.85em;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .metric-description {
+            font-size: 0.85em;
+            color: #999999;
+            margin-top: 8px;
+        }
+
+        .comparison-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 35px 0;
+        }
+
+        .comparison-card {
+            background: #FAF9F6;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #E8E8E8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            box-shadow: 0 6px 16px rgba(201, 169, 97, 0.15);
+            border-color: #C9A961;
+        }
+
+        .comparison-card h3 {
+            color: #2C2C2C;
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #C9A961;
+            font-weight: 600;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid #E8E8E8;
+            align-items: center;
+        }
+
+        .stat-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .stat-row span {
+            color: #666666;
+            font-size: 0.95em;
+        }
+
+        .stat-row strong {
+            color: #2C2C2C;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .insights-section {
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: 8px;
+            margin: 35px 0;
+            border: 1px solid #E8E8E8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .insight-item {
+            padding: 18px 0 18px 25px;
+            border-left: 4px solid #C9A961;
+            margin: 20px 0;
+            background: #FAF9F6;
+            padding-right: 20px;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        .insight-item:hover {
+            border-left-color: #D4AF37;
+            padding-left: 30px;
+            box-shadow: 0 2px 8px rgba(201, 169, 97, 0.1);
+        }
+
+        .recommendations {
+            background: linear-gradient(135deg, #FAF9F6 0%, #F5F3EE 100%);
+            border: 2px solid #C9A961;
+            padding: 35px;
+            border-radius: 8px;
+            margin: 35px 0;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.15);
+        }
+
+        .recommendations h3 {
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            color: #2C2C2C;
+            font-weight: 600;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .recommendations li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            color: #2C2C2C;
+            line-height: 1.7;
+        }
+
+        .recommendations li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #C9A961;
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: #2C2C2C;
+            color: #E8E8E8;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            border-top: 3px solid #C9A961;
+        }
+
+        .alert-box {
+            background: #FFF8E1;
+            border-left: 5px solid #F9A825;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(249, 168, 37, 0.1);
+        }
+
+        .alert-box strong {
+            color: #F57F17;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .success-box {
+            background: #E8F5E9;
+            border-left: 5px solid #66BB6A;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(102, 187, 106, 0.1);
+        }
+
+        .success-box strong {
+            color: #2E7D32;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .challenges-section {
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: 8px;
+            margin: 35px 0;
+            border: 1px solid #E8E8E8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .challenge-item {
+            margin: 30px 0;
+            padding: 25px;
+            background: #FAF9F6;
+            border-radius: 4px;
+            border-left: 4px solid #E8E8E8;
+            transition: all 0.3s ease;
+        }
+
+        .challenge-item:hover {
+            border-left-color: #C9A961;
+        }
+
+        .challenge-item strong {
+            display: block;
+            color: #2C2C2C;
+            font-size: 1.15em;
+            margin-bottom: 12px;
+        }
+
+        .challenge-item p {
+            color: #666666;
+            line-height: 1.7;
+            margin: 8px 0;
+        }
+
+        .optimization-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .optimization-list li {
+            padding: 14px 0 14px 35px;
+            position: relative;
+            color: #2C2C2C;
+            border-bottom: 1px solid #E8E8E8;
+            line-height: 1.7;
+        }
+
+        .optimization-list li:last-child {
+            border-bottom: none;
+        }
+
+        .optimization-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #66BB6A;
+            font-size: 1.3em;
+        }
+
+        .optimization-list li.in-progress:before {
+            content: "⏳";
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-section {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VIVINIA BY VIDHI MEHRA</h1>
+            <p class="subtitle">Monthly Performance Report - November & December 2025</p>
+        </header>
+
+        <div class="content">
+            <h2>Monthly Overview (Nov-Dec Actual)</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Amount Spent</div>
+                    <div class="metric-value">₹1,20,733</div>
+                    <div class="metric-description">Total ad spend</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Orders</div>
+                    <div class="metric-value">10</div>
+                    <div class="metric-description">Total orders received</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Revenue</div>
+                    <div class="metric-value">₹59,370</div>
+                    <div class="metric-description">Total revenue generated</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">ROAS</div>
+                    <div class="metric-value">0.52x</div>
+                    <div class="metric-description">Return on ad spend</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">AOV</div>
+                    <div class="metric-value">₹5,937</div>
+                    <div class="metric-description">Average Order Value</div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <strong>Performance Note:</strong> Actual spends were approximately 47% lower than projected (₹2,25,000) due to technical and operational challenges throughout the period.
+            </div>
+
+            <h2>Period Comparison</h2>
+            <div class="comparison-section">
+                <div class="comparison-card">
+                    <h3>November Performance</h3>
+                    <div class="stat-row">
+                        <span>Amount Spent</span>
+                        <strong>₹26,949</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Orders</span>
+                        <strong>0</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Revenue</span>
+                        <strong>₹0</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>ROAS</span>
+                        <strong>0.00x</strong>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">No purchases recorded due to website technical issues and inventory challenges.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>December Performance</h3>
+                    <div class="stat-row">
+                        <span>Amount Spent</span>
+                        <strong>₹93,784</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Orders</span>
+                        <strong>10</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Revenue</span>
+                        <strong>₹59,370</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>ROAS</span>
+                        <strong>0.63x</strong>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">Conversions began in December with improved performance post-inventory correction.</p>
+                </div>
+            </div>
+
+            <h2>Key Insights & Recommendations</h2>
+            <div class="insights-section">
+                <div class="insight-item">
+                    A 45-day media plan was projected with an initial daily spend of ₹5,000.
+                </div>
+                <div class="insight-item">
+                    Actual spends were approximately 47% lower than planned due to multiple technical and operational challenges.
+                </div>
+                <div class="insight-item">
+                    During the initial phase, only ~30% of overall ad viewers were reaching the website.
+                </div>
+                <div class="insight-item">
+                    Website speed was identified as a major factor affecting landing rates.
+                </div>
+                <div class="insight-item">
+                    Website optimizations were implemented, including removing unnecessary apps and converting high-resolution images to WebP format.
+                </div>
+                <div class="insight-item">
+                    Post-optimization, website performance improved significantly, with landing rates increasing to 70–75%.
+                </div>
+                <div class="insight-item">
+                    Based on these improvements, the daily ad budget was adjusted to ₹2,000 for few days to ensure stable performance.
+                </div>
+                <div class="insight-item">
+                    Campaigns had several pauses due to work in progress on website, website speed and insufficient funds in the ad account.
+                </div>
+                <div class="insight-item">
+                    No purchases were recorded in November; conversions began in December, though consistency remained a challenge.
+                </div>
+                <div class="insight-item">
+                    There were inventory issues which showed most products as Out Of Stock, leading to rising drop-offs from website as visitors selecting products from the collection page would see OOS in multiple selections.
+                </div>
+                <div class="insight-item">
+                    Stock levels were updated by EOD on 12th December.
+                </div>
+                <div class="insight-item">
+                    From 13th December, fresh campaigns were launched post inventory correction.
+                </div>
+                <div class="insight-item">
+                    These campaigns resulted in 8 purchases in December, delivering a ROAS of 0.77.
+                </div>
+                <div class="insight-item">
+                    Multiple additional optimizations were implemented during this period.
+                </div>
+                <div class="insight-item">
+                    Some improvements are still work in progress, including the development of a dedicated Ready to Ship (RTS) collection page to better attract users toward in-stock products.
+                </div>
+                <div class="insight-item">
+                    The performance metrics mentioned above are derived solely from the Meta platform.
+                </div>
+                <div class="insight-item">
+                    AI-generated product images were uploaded on collection pages to increase visual appeal and drive higher user engagement.
+                </div>
+                <div class="insight-item">
+                    Product descriptions are being updated to clearly differentiate between Ready to Ship (RTS) and Made-to-Order products.
+                </div>
+                <div class="insight-item">
+                    Description updates are currently work in progress and will be completed in phases to improve clarity and reduce user confusion.
+                </div>
+            </div>
+
+            <h2>Key Challenges & Resolutions</h2>
+            <div class="challenges-section">
+                <div class="challenge-item">
+                    <strong>Website Performance Issues</strong>
+                    <p>Initial landing rate: Only 30% of ad viewers reached the website due to slow loading speeds.</p>
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>Resolution:</strong> Implemented optimizations including removal of unnecessary apps and conversion to WebP image format. Post-optimization landing rates improved to 70-75%.
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <strong>Inventory Management</strong>
+                    <p>Multiple products showed as "Out of Stock," causing significant drop-offs from collection pages.</p>
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>Resolution:</strong> Stock levels updated by EOD December 12th. Fresh campaigns launched from December 13th resulted in 8 purchases.
+                    </div>
+                </div>
+
+                <div class="challenge-item">
+                    <strong>Campaign Interruptions</strong>
+                    <p>Multiple pauses due to website work-in-progress, speed issues, and insufficient ad account funds.</p>
+                    <div class="success-box" style="margin-top: 15px;">
+                        <strong>Action Taken:</strong> Daily budget adjusted to ₹2,000 during optimization period to ensure stable performance.
+                    </div>
+                </div>
+            </div>
+
+            <h2>Optimizations Implemented</h2>
+            <div class="insights-section">
+                <ul class="optimization-list">
+                    <li>Product descriptions being updated to differentiate RTS vs Made-to-Order products</li>
+                    <li>Website speed optimizations significantly improved user experience</li>
+                    <li class="in-progress">Ready to Ship (RTS) collection page development in progress</li>
+                </ul>
+            </div>
+
+            <h2>Projected vs Achieved (Nov-Dec)</h2>
+            <div class="comparison-section">
+                <div class="comparison-card">
+                    <h3>Projected Numbers</h3>
+                    <div class="stat-row">
+                        <span>Spends</span>
+                        <strong>₹2,25,000</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Orders</span>
+                        <strong>27</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Revenue</span>
+                        <strong>₹2,28,703</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>ROAS</span>
+                        <strong>1.02x</strong>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>Achieved Numbers</h3>
+                    <div class="stat-row">
+                        <span>Spends</span>
+                        <strong>₹1,20,733</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Orders</span>
+                        <strong>10</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Revenue</span>
+                        <strong>₹59,370</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>ROAS</span>
+                        <strong>0.52x</strong>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; color: #666;">Performance impacted by technical challenges and inventory issues throughout the period.</p>
+                </div>
+            </div>
+
+            <h2>January 2025 Projections & Strategy</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Projected Spend</div>
+                    <div class="metric-value">₹1,55,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Projected Orders</div>
+                    <div class="metric-value">23</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Projected Revenue</div>
+                    <div class="metric-value">₹1,62,750</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Target ROAS</div>
+                    <div class="metric-value">1.05x</div>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>Strategic Initiatives for January</h3>
+                <ul>
+                    <li>Catalogue campaigns temporarily paused to enable more efficient creative testing</li>
+                    <li>Separate catalogue set with model images will be used for ad promotions</li>
+                    <li>Mumbai-specific campaign launch with additional ₹1,000 daily budget</li>
+                    <li>Focus on COD-enabled products priced under ₹5,000 for Mumbai campaign</li>
+                    <li>Testing timeline: 7-10 days for new campaign strategies</li>
+                    <li>Continue phased completion of product description updates</li>
+                    <li>Complete development of dedicated RTS collection page</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 VIVINIA by Vidhi Mehra - Monthly Performance Report by Black Coffee Media
+        </footer>
+    </div>
+</body>
+</html>
