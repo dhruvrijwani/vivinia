@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIVINIA by Vidhi Mehra | Monthly Performance Report – February 2026</title>
+  <style>
+    /* ===========================
+       CSS VARIABLES & RESET
+    =========================== */
+    :root {
+      --primary: #c9a053;
+      --primary-dark: #b8894a;
+      --secondary: #fdf8f0;
+      --accent: #b8894a;
+      --accent-light: #d4b574;
+      --warning: #dab162;
+      --success: #28a745;
+      --success-light: #d4edda;
+      --text-dark: #2a2a2a;
+      --text-light: #6f6f6f;
+      --text-muted: #999;
+      --card-bg: #ffffff;
+      --border-light: rgba(0,0,0,0.06);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.1);
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 20px;
+      --radius-xl: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
+      color: var(--text-dark);
+      padding: 24px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===========================
+       LAYOUT & CONTAINER
+    =========================== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    }
+
+    /* ===========================
+       HEADER
+    =========================== */
+    .header {
+      background: linear-gradient(135deg, #b8894a 0%, #8b6a38 100%);
+      color: #fff;
+      padding: 48px 40px;
+      border-radius: var(--radius-xl);
+      margin-bottom: 48px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header p {
+      opacity: 0.92;
+      font-size: 15px;
+      margin-bottom: 28px;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exec-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      background: rgba(255,255,255,0.15);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .exec-strip div {
+      text-align: center;
+    }
+
+    .exec-strip div span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.88;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    .exec-strip div strong {
+      font-size: 26px;
+      font-weight: 700;
+      display: block;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* ===========================
+       SECTIONS
+    =========================== */
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+    }
+
+    /* ===========================
+       GRID & CARDS
+    =========================== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent-light));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card small {
+      color: var(--text-light);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      margin-top: 4px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===========================
+       PLATFORM CARDS
+    =========================== */
+    .platform {
+      border-left: 5px solid var(--primary);
+      background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+    }
+
+    .platform h4 {
+      font-size: 17px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    /* ===========================
+       BADGES
+    =========================== */
+    .badge {
+      font-size: 10px;
+      padding: 5px 10px;
+      background: var(--success);
+      color: white;
+      border-radius: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+    }
+
+    .badge.up {
+      background: var(--success);
+    }
+
+    /* ===========================
+       METRICS
+    =========================== */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .metric {
+      background: var(--secondary);
+      padding: 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      transition: all 0.2s ease;
+    }
+
+    .metric:hover {
+      border-color: var(--accent-light);
+      transform: scale(1.02);
+    }
+
+    .metric span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+
+    .metric strong {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: block;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric strong.animate {
+      animation: pulse 0.6s ease;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    /* ===========================
+       BARS
+    =========================== */
+    .bar {
+      height: 6px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--primary), var(--accent-light));
+      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 6px;
+    }
+
+    /* ===========================
+       INSIGHT & SUCCESS BOXES
+    =========================== */
+    .insight-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-left: 5px solid var(--accent);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .insight-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .insight-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    .success-box {
+      background: linear-gradient(135deg, #f0faf3 0%, #d4edda 100%);
+      border-left: 5px solid var(--success);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      margin-top: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .success-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .success-box p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    .success-box strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #fbf7ee 0%, #f5efe0 100%);
+      border-left: 5px solid var(--warning);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .highlight h4 {
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* ===========================
+       COMPARISON CARDS
+    =========================== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .comparison-card {
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--border-light);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .comparison-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .comparison-card h5 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .comparison-card .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 15px;
+      align-items: center;
+    }
+
+    .comparison-card .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .comparison-card .stat-row strong {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .delta-up {
+      color: #1a7a3c;
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .delta-down {
+      color: #b91c1c;
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ===========================
+       CREATIVE CARDS
+    =========================== */
+    .creative-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .creative-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      border: 2px solid var(--border-light);
+    }
+
+    .creative-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-light);
+    }
+
+    .creative-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .creative-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .creative-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .creative-stats .stat {
+      background: var(--secondary);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      transition: all 0.2s ease;
+    }
+
+    .creative-stats .stat:hover {
+      border-color: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .creative-stats .stat span {
+      display: block;
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .creative-stats .stat strong {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===========================
+       LISTS
+    =========================== */
+    ul {
+      margin-left: 0;
+      list-style: none;
+    }
+
+    li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li strong {
+      color: var(--text-dark);
+      font-weight: 700;
+      display: inline-block;
+      margin-right: 4px;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border-light);
+      font-weight: 500;
+    }
+
+    /* ===========================
+       ANIMATIONS
+    =========================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 768px) {
+      body {
+        padding: 16px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .header {
+        padding: 32px 24px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exec-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .creative-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===========================
+       PRINT STYLES
+    =========================== */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .container {
+        box-shadow: none;
+        background: white;
+      }
+
+      .card:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===========================
+         HEADER SECTION
+    =========================== -->
+    <div class="header">
+      <h1>VIVINIA by Vidhi Mehra</h1>
+      <p>Monthly Performance Report · February 2026</p>
+      <div class="exec-strip">
+        <div>
+          <span>ROAS Achieved</span>
+          <strong>1.19x ✅</strong>
+        </div>
+        <div>
+          <span>Total Revenue</span>
+          <strong>₹1,39,819</strong>
+        </div>
+        <div>
+          <span>vs January ROAS</span>
+          <strong>0.52x → 1.19x</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================
+         OVERALL PERFORMANCE
+    =========================== -->
+    <div class="section">
+      <div class="section-title">📊 Overall Performance Summary (Sales)</div>
+      <div class="grid fade-up">
+        <div class="card">
+          <small>Amount Spent</small>
+          <h3 class="count" data-target="117635" data-prefix="₹">₹0</h3>
+          <div class="bar"><span data-bar="76"></span></div>
+        </div>
+        <div class="card">
+          <small>Orders</small>
+          <h3 class="count" data-target="21">0</h3>
+          <div class="bar"><span data-bar="70"></span></div>
+        </div>
+        <div class="card">
+          <small>Revenue</small>
+          <h3 class="count" data-target="139819" data-prefix="₹">₹0</h3>
+          <div class="bar"><span data-bar="90"></span></div>
+        </div>
+        <div class="card">
+          <small>ROAS</small>
+          <h3 class="count" data-target="1.19" data-suffix="x">0x</h3>
+          <div class="bar"><span data-bar="60"></span></div>
+        </div>
+        <div class="card">
+          <small>Avg. Order Value</small>
+          <h3 class="count" data-target="6658" data-prefix="₹">₹0</h3>
+          <div class="bar"><span data-bar="65"></span></div>
+        </div>
+      </div>
+
+      <div class="success-box fade-up">
+        <h4>✅ Strong Month-on-Month Recovery</h4>
+        <p>February 2026 marked a significant turnaround — ROAS crossed 1x for the first time, orders nearly doubled (+91%), and revenue grew by over 118% compared to January 2026, while ad spend actually decreased by ₹4,592.</p>
+      </div>
+    </div>
+
+    <!-- ===========================
+         BRIDAL APPOINTMENT CAMPAIGNS
+    =========================== -->
+    <div class="section">
+      <div class="section-title">💍 Performance Summary – Bridal Appointment Lead Campaigns</div>
+
+      <div class="comparison-grid fade-up">
+        <div class="comparison-card">
+          <h5>🌐 Website Lead Gen</h5>
+          <div class="stat-row">
+            <span>Spend</span>
+            <strong>₹10,524</strong>
+          </div>
+          <div class="stat-row">
+            <span>Leads</span>
+            <strong>4</strong>
+          </div>
+          <div class="stat-row">
+            <span>Cost Per Lead (CPL)</span>
+            <strong>₹2,631</strong>
+          </div>
+        </div>
+        <div class="comparison-card">
+          <h5>💬 WhatsApp Messaging</h5>
+          <div class="stat-row">
+            <span>Spend</span>
+            <strong>₹8,838</strong>
+          </div>
+          <div class="stat-row">
+            <span>Leads</span>
+            <strong>98</strong>
+          </div>
+          <div class="stat-row">
+            <span>Cost Per Lead (CPL)</span>
+            <strong>₹90</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-box fade-up">
+        <h4>💡 Lead Campaign Insight</h4>
+        <p>WhatsApp messaging delivered significantly higher lead volume at a much lower CPL (₹90 vs ₹2,631), though it naturally attracts some low-intent enquiries. Post-optimisation, lead quality improved considerably. Website lead gen delivered fewer but higher-quality leads, with 1 warm and relevant bridal appointment lead recorded.</p>
+      </div>
+    </div>
+
+    <!-- ===========================
+         POST BOOSTING
+    =========================== -->
+    <div class="section">
+      <div class="section-title">📣 Post Boosting Performance</div>
+      <div class="grid fade-up">
+        <div class="card">
+          <small>Spend</small>
+          <h3>₹14,475</h3>
+          <div class="bar"><span data-bar="55"></span></div>
+        </div>
+        <div class="card">
+          <small>Reach</small>
+          <h3>1,51,536</h3>
+          <div class="bar"><span data-bar="85"></span></div>
+        </div>
+        <div class="card">
+          <small>Page Engagement</small>
+          <h3>54,876</h3>
+          <div class="bar"><span data-bar="65"></span></div>
+        </div>
+      </div>
+      <div class="insight-box fade-up">
+        <h4>💡 Boosting Insight</h4>
+        <p>Post boosting delivered strong brand visibility with over 1.51 lakh reach at an efficient spend of ₹14,475. It is recommended to continue post boosting consistently in the coming months to maintain higher visibility, improve brand recall, and support overall campaign performance.</p>
+      </div>
+    </div>
+
+    <!-- ===========================
+         PERIOD COMPARISON
+    =========================== -->
+    <div class="section">
+      <div class="section-title">📈 Period Comparison</div>
+      <div class="comparison-grid fade-up">
+        <div class="comparison-card">
+          <h5>January 2026 Performance</h5>
+          <div class="stat-row">
+            <span>Amount Spent</span>
+            <strong>₹1,22,227</strong>
+          </div>
+          <div class="stat-row">
+            <span>Orders</span>
+            <strong>11</strong>
+          </div>
+          <div class="stat-row">
+            <span>Revenue</span>
+            <strong>₹64,125</strong>
+          </div>
+          <div class="stat-row">
+            <span>ROAS</span>
+            <strong>0.52x</strong>
+          </div>
+        </div>
+        <div class="comparison-card" style="border-color: var(--accent);">
+          <h5>February 2026 Performance <span class="badge up">Current</span></h5>
+          <div class="stat-row">
+            <span>Amount Spent</span>
+            <div style="text-align:right">
+              <strong>₹1,17,635</strong>
+              <span class="delta-up">▼ ₹4,592 spent less</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span>Orders</span>
+            <div style="text-align:right">
+              <strong>21</strong>
+              <span class="delta-up">▲ +10 orders (+91%)</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span>Revenue</span>
+            <div style="text-align:right">
+              <strong>₹1,39,819</strong>
+              <span class="delta-up">▲ +₹75,694 (+118%)</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span>ROAS</span>
+            <div style="text-align:right">
+              <strong>1.19x</strong>
+              <span class="delta-up">▲ +0.67x improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================
+         PROJECTED VS ACHIEVED
+    =========================== -->
+    <div class="section">
+      <div class="section-title">🎯 Projected vs Achieved (February 2026)</div>
+      <div class="comparison-grid fade-up">
+        <div class="comparison-card">
+          <h5>Projected Numbers</h5>
+          <div class="stat-row">
+            <span>Spends</span>
+            <strong>₹1,55,000</strong>
+          </div>
+          <div class="stat-row">
+            <span>Orders</span>
+            <strong>28</strong>
+          </div>
+          <div class="stat-row">
+            <span>Revenue</span>
+            <strong>₹1,53,513</strong>
+          </div>
+          <div class="stat-row">
+            <span>ROAS</span>
+            <strong>1.00x</strong>
+          </div>
+        </div>
+        <div class="comparison-card">
+          <h5>Achieved Numbers</h5>
+          <div class="stat-row">
+            <span>Spends</span>
+            <strong>₹1,17,635</strong>
+          </div>
+          <div class="stat-row">
+            <span>Orders</span>
+            <strong>21</strong>
+          </div>
+          <div class="stat-row">
+            <span>Revenue</span>
+            <strong>₹1,39,819</strong>
+          </div>
+          <div class="stat-row">
+            <span>ROAS</span>
+            <strong>1.19x <span class="badge up">Exceeded</span></strong>
+          </div>
+        </div>
+      </div>
+      <div class="insight-box fade-up">
+        <h4>💡 Efficiency Insight</h4>
+        <p>Despite spending 24% less than projected (₹1,17,635 vs ₹1,55,000), the campaign exceeded the ROAS target of 1.00x, achieving 1.19x. This reflects a significant improvement in campaign efficiency driven by audience optimisations and creative learnings carried forward from January's second half.</p>
+      </div>
+    </div>
+
+    <!-- ===========================
+         KEY INSIGHTS
+    =========================== -->
+    <div class="section">
+      <div class="section-title">💡 Key Insights & Recommendations</div>
+      <div class="card fade-up">
+        <ul>
+          <li>
+            <strong>📌 Scale Opportunity:</strong> With ROAS now above 1x, this is a good opportunity to gradually increase the daily budget to scale revenue further. While scaling, closely monitor frequency and CTR to avoid creative fatigue and performance drop.
+          </li>
+          <li>
+            <strong>📌 Audience Strategy Working:</strong> The South audience segmentation is performing well — we are targeting product-specific categories like South Indian temple jewellery in top-tier cities. Additionally, we have a separate campaign targeting top-tier cities overall, which is also delivering strong results.
+          </li>
+          <li>
+            <strong>📌 Occasion Campaign Insight:</strong> We tested a Valentine's Day offer on specific products only, but the performance was not strong and delivered just 1 purchase. It is recommended to do a sitewide offer instead of product-specific discounts to improve traction and overall conversions.
+          </li>
+          <li>
+            <strong>📌 Influencer & UGC Creatives:</strong> Competitors are actively using influencer collaboration ads. It is recommended to create influencer/UGC-based video-led ads, as this can significantly improve engagement, CTR, and conversion performance.
+          </li>
+          <li>
+            <strong>📌 Post Boosting Strategy (March):</strong> In March, we executed post boosting to gain additional reach. Going forward, it is recommended to continue post boosting consistently to maintain higher visibility, improve brand recall, and support overall campaign performance.
+          </li>
+          <li>
+            <strong>📌 Bridal Appointment – Lead Gen Campaign:</strong> This month, we tested a lead generation campaign for bridal appointments. We received 3 leads, out of which 1 was a warm and relevant lead. The total spend was approximately ₹10K.
+          </li>
+          <li>
+            <strong>📌 WhatsApp Lead Gen – Bridal Appointments:</strong> We also tested a WhatsApp lead generation campaign for bridal appointments. Initially, it generated some junk leads; however, after campaign optimisation, we started receiving better-quality enquiries. It is important to note that WhatsApp campaigns naturally attract some low-intent or junk enquiries.
+          </li>
+          <li>
+            <strong>📌 Platform Note:</strong> All performance metrics mentioned above are derived solely from the Meta platform.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===========================
+         KEY ACHIEVEMENTS
+    =========================== -->
+    <div class="section">
+      <div class="section-title">🏆 Key Achievements & Improvements</div>
+      <div class="card fade-up">
+        <div class="success-box" style="margin-top:0; margin-bottom: 16px;">
+          <strong>✓ ROAS crossed 1x for the first time:</strong> February achieved a 1.19x ROAS — a direct result of audience optimisations and creative learnings from January's second half.
+        </div>
+        <div class="success-box" style="margin-top:0; margin-bottom: 16px;">
+          <strong>✓ Orders nearly doubled:</strong> Grew from 11 orders in January to 21 in February (+91%), demonstrating the lasting impact of the audience testing strategy.
+        </div>
+        <div class="success-box" style="margin-top:0; margin-bottom: 16px;">
+          <strong>✓ Revenue more than doubled:</strong> Revenue grew from ₹64,125 to ₹1,39,819 (+118%) while ad spend decreased — confirming improved campaign efficiency.
+        </div>
+        <div class="success-box" style="margin-top:0; margin-bottom: 16px;">
+          <strong>✓ AOV improved:</strong> Average Order Value rose from ₹5,730 to ₹6,658 (+16%), indicating customers are purchasing higher-value items or multiple products per order.
+        </div>
+        <div class="success-box" style="margin-top:0;">
+          <strong>✓ Cost per Order improved:</strong> Dropped from ~₹11,111 in January to ~₹5,602 in February — a 50% reduction in acquisition cost.
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================
+         TOP PERFORMING CREATIVES
+    =========================== -->
+    <div class="section">
+      <div class="section-title">🎨 Top Performing Creatives</div>
+      <p style="font-size:15px; color: var(--text-light); margin-bottom: 24px;">Best-performing creatives driving conversions in February 2026</p>
+      <div class="creative-grid fade-up">
+        <!-- Creative 1 -->
+        <div class="creative-card">
+          <img src="https://lh3.googleusercontent.com/d/15dLvhQqzKOJLrEqMX7_4Z3sPsi15KZDO" alt="Top Performing Creative 1" loading="lazy" />
+          <div class="creative-stats">
+            <div class="stat">
+              <span>Spend</span>
+              <strong>₹13,644</strong>
+            </div>
+            <div class="stat">
+              <span>Orders</span>
+              <strong>3</strong>
+            </div>
+            <div class="stat">
+              <span>ROAS</span>
+              <strong>2.53x</strong>
+            </div>
+            <div class="stat">
+              <span>CTR</span>
+              <strong>3.69%</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Creative 2 -->
+        <div class="creative-card">
+          <img src="https://lh3.googleusercontent.com/d/1T0TtnzeSU3nKjggyqrSUNJqlYrukGgYY" alt="Top Performing Creative 2" loading="lazy" />
+          <div class="creative-stats">
+            <div class="stat">
+              <span>Spend</span>
+              <strong>₹15,440</strong>
+            </div>
+            <div class="stat">
+              <span>Orders</span>
+              <strong>3</strong>
+            </div>
+            <div class="stat">
+              <span>ROAS</span>
+              <strong>1.32x</strong>
+            </div>
+            <div class="stat">
+              <span>CTR</span>
+              <strong>1.95%</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================
+         MARCH PROJECTIONS
+    =========================== -->
+    <div class="section">
+      <div class="section-title">🎯 March 2026 Targets</div>
+      <div class="grid fade-up">
+        <div class="card">
+          <small>Projected Spend</small>
+          <h3>₹1,55,000</h3>
+          <div class="bar"><span data-bar="100"></span></div>
+        </div>
+        <div class="card">
+          <small>Projected Orders</small>
+          <h3>24</h3>
+          <div class="bar"><span data-bar="80"></span></div>
+        </div>
+        <div class="card">
+          <small>Projected Revenue</small>
+          <h3>₹1,92,000</h3>
+          <div class="bar"><span data-bar="85"></span></div>
+        </div>
+        <div class="card">
+          <small>Target ROAS</small>
+          <h3>1.24x</h3>
+          <div class="bar"><span data-bar="75"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===========================
+         FOOTER
+    =========================== -->
+    <div class="footer">
+      © 2026 VIVINIA by Vidhi Mehra · Monthly Performance Report by Black Coffee Media
+    </div>
+
+  </div>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Metric hover animation
+    document.querySelectorAll('.metric').forEach(metric => {
+      metric.addEventListener('mouseenter', () => {
+        const value = metric.querySelector('strong');
+        if (value) {
+          value.classList.add('animate');
+          setTimeout(() => value.classList.remove('animate'), 600);
+        }
+      });
+    });
+
+    // Counter animation
+    document.querySelectorAll('.count').forEach(counter => {
+      const target = parseFloat(counter.getAttribute('data-target'));
+      const prefix = counter.getAttribute('data-prefix') || '';
+      const suffix = counter.getAttribute('data-suffix') || '';
+      const isDecimal = target % 1 !== 0;
+      const increment = target / 100;
+      let current = 0;
+
+      const update = () => {
+        current = Math.min(current + increment, target);
+        const display = isDecimal 
+          ? current.toFixed(2) 
+          : Math.floor(current).toLocaleString('en-IN');
+        counter.innerText = `${prefix}${display}${suffix}`;
+        if (current < target) {
+          requestAnimationFrame(update);
+        }
+      };
+      
+      // Start animation after a short delay
+      setTimeout(update, 300);
+    });
+
+    // Bar progress animation
+    document.querySelectorAll('[data-bar]').forEach(bar => {
+      setTimeout(() => {
+        bar.style.width = bar.getAttribute('data-bar') + '%';
+      }, 500);
+    });
+
+    // Smooth scroll for any internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
